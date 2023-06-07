@@ -20,10 +20,11 @@ public class Account {
         }
     }	
 	
-	public void printStatement() {
-		System.out.println("Date" + "--" + "Amount" + "--" + "Balance");
+	public String printStatement() {
+		StringBuilder stringBuilder = new StringBuilder("Date | Amount | Balance");		
 		for (Transaction transaction : transactions) {
-			System.out.println(transaction.getDate() + "--" + transaction.getAmount() + "--" + transaction.getBalance());
-		}
+			stringBuilder.append(transaction.getDate() + " | " + transaction.getAmount() + " | " + transaction.getBalance()).append("\n");
+		}		
+		return stringBuilder.toString();
 	}
 }
